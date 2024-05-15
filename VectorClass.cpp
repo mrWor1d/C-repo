@@ -156,8 +156,19 @@ int main ()
     cout << "Empty: " << v.empty() << endl;
     PRINTLINE();
 
-    v.push_back(1).push_back(2).push_back(3).push_back(4).push_back(5);
-    cout << "Size: " << v.size() << endl;
+    cout << "Size: " << v.push_back(1).push_back(2).push_back(3).push_back(4).push_back(5).size() << endl;
+    cout << "Capacity: " << v.capacity() << endl;
+    cout << "Empty: " << v.empty() << endl;
+    PRINTLINE();
+
+    cout << "Elements: ";
+    for (auto i = v.begin(); i != v.end(); ++i) {
+        cout << *i << " ";
+    }
+    cout << endl;
+    PRINTLINE();
+    
+    cout << "Size: " << v.pop_back().size() << endl;
     cout << "Capacity: " << v.capacity() << endl;
     cout << "Empty: " << v.empty() << endl;
     PRINTLINE();
@@ -195,21 +206,7 @@ int main ()
     cout << endl;
     PRINTLINE();
 
-    v.pop_back();
-    cout << "Size: " << v.size() << endl;
-    cout << "Capacity: " << v.capacity() << endl;
-    cout << "Empty: " << v.empty() << endl;
-    PRINTLINE();
-
-    cout << "Elements: ";
-    for (auto i = v.begin(); i != v.end(); ++i) {
-        cout << *i << " ";
-    }
-    cout << endl;
-    PRINTLINE();
-
-    v.pop_back();
-    cout << "Size: " << v.size() << endl;
+    cout << "Size: " << v.pop_back().size() << endl;
     cout << "Capacity: " << v.capacity() << endl;
     cout << "Empty: " << v.empty() << endl;
 
