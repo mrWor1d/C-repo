@@ -180,8 +180,7 @@ int main ()
     cout << endl;
     PRINTLINE();
 
-    v.pop_back();
-    cout << "Size: " << v.size() << endl;
+    cout << "Size: " << v.pop_back().size() << endl;
     cout << "Capacity: " << v.capacity() << endl;
     cout << "Empty: " << v.empty() << endl;
     PRINTLINE();
@@ -193,8 +192,7 @@ int main ()
     cout << endl;
     PRINTLINE();
 
-    v.pop_back();
-    cout << "Size: " << v.size() << endl;
+    cout << "Size: " << v.pop_back().size() << endl;
     cout << "Capacity: " << v.capacity() << endl;
     cout << "Empty: " << v.empty() << endl;
     PRINTLINE();
