@@ -5,10 +5,8 @@
 #include <memory>
 #include <utility>
 
-#define PRINTNEWLINE() std::cout << '\n' << "-*********************************************************************************************-" << '\n'<< std::endl;
-#define PRINTLINE(line) std::cout << line << '\n';
-#define PRINT(x) std::cout << x;
-
+#ifndef MYLIST_CLASS
+#define MYLIST_CLASS
 
 //include the necessary libraries
 using std::cout;
@@ -403,93 +401,57 @@ class List
 };
 
 
-
-int main ()
+class Human
 {
-    List<int> list;
-
-    list.insertAtHead(5).display();
-
-    list.insertAtHead(4).display();
-
-    list.insertAtHead(3).display();
-
-    PRINTNEWLINE();
-
-    list.insertAtTail(6).display();
-
-    list.insertAtTail(7).display();
-
-    list.insertAtTail(8).display();
-
-    PRINTNEWLINE();
-
-    list.insertAt(11, 5).display();
-
-    list.insertAt(12, 0).display();
-
-    list.insertAt(13, 7).display();
-
-    PRINTNEWLINE();
-
-    PRINTLINE(list.at(0));
-
-    PRINTLINE(list.at(2));
-
-    PRINTLINE(list.at(17));
-
-    PRINTNEWLINE();
-
-    PRINTLINE(list.front());
-
-    PRINTLINE(list.back());
-
-    list.setData(9, 4);
-
-    PRINTNEWLINE();
-
-    PRINTLINE(list.position(6));
-
-    PRINTLINE(list.position(10));
-
-    PRINTNEWLINE();
-
-    PRINTLINE(list.contains(1));
-
-    PRINTLINE(list.contains(10));
-
-    PRINTNEWLINE();
-
-    PRINTLINE("The address of the node at position 5 is: ");
-
-    PRINT(&list.at(5));
-
-    PRINT(list.get(5).getAddress());
-
-    PRINTNEWLINE();
-
-    PRINTLINE("The list is empty: ");
-    PRINTLINE(list.isEmpty());
-
-    PRINTLINE("the list contains the following elements: ");
+    protected:
+        //***********************class atrributes (private)***********************
+        string name_;
+        int age_;
+        Human* m_address_;
     
-    PRINT('{'); list.display(); PRINT('}');
+    public:
+        //***********************constructor (default)***********************
+        Human () : name_{""}, age_{0}, m_address_ {this} {}
 
-    PRINTLINE("And the size of the list is: ")
-    PRINTLINE(list.length());
+        //***********************constructor (parametric)***********************
+        Human (string& name, int& age) : name_{name}, age_{age}, m_address_ {this} {}
 
-    PRINTNEWLINE();
-    list[7]=100;
-    PRINTLINE(list[7]);
+        //***********************class methods***********************
+
+        //method to set the name of the human
+        Human& setName(string& name) { name_ = name; return *this; }
+
+        //method to set the age of the human
+        Human& setAge(int& age) { age_ = age; return *this; }
+
+        //method to get the name of the human
+        string getName() const { return name_; }
+
+        //method to get the age of the human
+        int getAge() const { return age_; }
+
+        //method to get the memory address of the human
+        Human* memoryAddress() const { return m_address_; }
+};
 
 
-    PRINT(list[4]);
+class Object
+{
+    protected:
+        //***********************class atrributes (private)***********************
+        Object* m_address_;
 
-    PRINTNEWLINE();
+    public:
+        //***********************constructor (default)***********************
+        Object () : m_address_ {this} {}
 
-    PRINT (list[3]/list.at(2));
-  
-    
-    return 0;
-}
+        //***********************class methods***********************
 
+        //method to get the memory address of the object
+        Object* memoryAddress() const { return m_address_; }
+
+};
+
+
+
+#endif
